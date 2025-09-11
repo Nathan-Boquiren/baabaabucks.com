@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    --accent-clr: rgb(0 182 0);
+}
+
+body.error {
+    --accent-clr: rgb(216 0 0);
+}
+
+.checkmark {
+    margin-top: 10rem;
+    aspect-ratio: 1;
+    width: fit-content;
+    background-color: var(--accent-clr);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem;
+    border-radius: 50%;
+}
+
+
+
+.checkmark span {
+    color: #fff;
+    font-size: 3rem;
+}
+
+h1, h2, h3, details, summary {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 800;
+    color: var(--accent-clr);
+    font-size: 3rem;
+    margin-block: .5rem 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: hsl(0 0 20);
+    margin-bottom: .3rem;
+}
+
+h3  {
+    color: hsl(0 0 60);
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+/* error details */
+
+details, summary {text-align: left;}
+
+details {
+    margin-top: 2rem;
+    align-self: flex-start;
+    line-height: 1.5;
+    max-width: 60ch;
+    padding-inline: 1rem;
+    text-wrap: pretty;
+}
+
+summary {
+    color: hsl(0 100 75);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+summary::before {
+    font-family: "Material Symbols Rounded";
+    content: 'arrow_right';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+summary::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: hsl(0 100 75);
+    transition: width 0.4s ease;
+}
+
+details[open] summary::before {transform: rotate(90deg)}
+details[open] summary::after {width: 100%}
+
+details[open] p {animation: fade 0.4s ease forwards}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
