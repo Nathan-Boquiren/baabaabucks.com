@@ -92,3 +92,45 @@ img[alt="Info icon"] {
         opacity: 1;
     }
 }
+
+/* Loading */
+
+body:has(#loading.show) > *:not(#loading.show) { display: none }
+#loading:not(.show) { display: none }
+
+#loading {
+    width: 100%;
+    max-width: 50rem;
+    position: relative;
+}
+
+#loading::before, #loading::after {
+    content: '';
+    position: absolute;
+    inset-block: 0;
+    width: 2rem;
+}
+#loading::before {
+    left: 0;
+    background: linear-gradient(to right,  white, transparent);
+}
+#loading::after {
+    right: 0;
+    background: linear-gradient(to left,  white, transparent);
+}
+
+#loading img {
+    width: 100%;
+}
+
+#loading h1 span.animate {
+    display: inline-block;
+    --delay: 10ms;
+    animation: animate 1.5s var(--delay) ease;
+}
+
+@keyframes animate {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-1rem); }
+    100% { transform: translateY(0); }
+}

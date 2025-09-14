@@ -14,10 +14,35 @@ function success(result) {
   console.log(result);
   const match = result.match(/[?&]s=([^&]+)/);
   const id = match ? match[1] : null;
-  window.location = `https://script.google.com/macros/s/AKfycbz-Axfka8Ko1fKD-w5Q8E3eMwla9MaSdo8eHnWc8XJEHaIbKOWPtZX7WDfyqkHaqyeV/exec?id=${id}`;
+
+  showLoading();
+
+  window.location.href = `https://script.google.com/macros/s/AKfycbwFDaTzuik1wYl69vBq09k-gJny24wK1hpIxumM4INmA4F808UPLpZHmZyEtSCrYRcM/exec?id=${id}`;
   scanner.clear();
 }
 
 function error(err) {
   console.error(err);
+}
+
+function showLoading() {
+  const loading = document.getElementById("loading");
+  let txt = Array.from(loading.querySelector("h1").innerHTML);
+  const spans = txt.map((ch) => `<span>${ch}</span>`).join("");
+  loading.querySelector("h1").innerHTML = spans;
+  loading.classList.add("show");
+  animateTxt();
+  setInterval(() => {
+    animateTxt();
+  }, 2000);
+}
+
+function animateTxt() {
+  const chs = document.querySelectorAll("h1 span");
+  chs.forEach((ch) => ch.classList.remove("animate"));
+  void loading.offsetWidth;
+  chs.forEach((ch, i) => {
+    ch.style.setProperty("--delay", `${i * 30}ms`);
+    ch.classList.add("animate");
+  });
 }
