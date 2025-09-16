@@ -1,3 +1,5 @@
+const scriptUrl = "https://script.google.com/macros/s/AKfycbwFDaTzuik1wYl69vBq09k-gJny24wK1hpIxumM4INmA4F808UPLpZHmZyEtSCrYRcM/exec";
+
 const config = {
   qrbox: {
     width: 500,
@@ -14,10 +16,8 @@ function success(result) {
   console.log(result);
   const match = result.match(/[?&]s=([^&]+)/);
   const id = match ? match[1] : null;
-
   showLoading();
-
-  window.location.href = `https://script.google.com/macros/s/AKfycbwFDaTzuik1wYl69vBq09k-gJny24wK1hpIxumM4INmA4F808UPLpZHmZyEtSCrYRcM/exec?id=${id}`;
+  window.location.href = `${scriptUrl}?id=${id}`;
   scanner.clear();
 }
 
