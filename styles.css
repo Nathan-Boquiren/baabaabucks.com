@@ -90,6 +90,12 @@ body:has(#loading.show) > *:not(#loading.show) { display: none }
     width: 100%;
     max-width: 50rem;
     position: relative;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0;}
+    to {opacity: 1;}
 }
 
 #loading::before, #loading::after {
