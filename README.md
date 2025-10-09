@@ -1,8 +1,7 @@
-<h1 align="center">baabaabucks.com</h1>
+<h1 align="center">Baa Baa Bucks</h1>
 <h2 align="center">QR Code Debit System for School Concession Stand</h2>
 <br>
 <p>This is a the frontend for a QR code-based debit system, built along with Google Apps Script.</p>
-# Baa Baa Bucks: QR Code Debit System for School Concession Stand
 
 ## Overview
 
