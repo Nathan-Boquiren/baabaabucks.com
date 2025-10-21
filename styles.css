@@ -17,17 +17,19 @@ body {
     background-color: var(--bg-clr);
 }
 
-.wrapper {
-    width: clamp(14rem, 75%, 40rem);
-    margin: 1.5rem auto;
+.wrapper, #loading {
     background-color: hsl(0 0 100);
-    
     box-shadow: 0 2px .5rem hsl(0 0 0 / .15);
     border-radius: 1.5rem;
     padding: 1rem;
+    margin: 1.5rem auto;
 }
 
-.wrapper h1 {
+.wrapper {
+    width: clamp(14rem, 80%, 40rem);
+}
+
+h1 {
     font-size: clamp(1.5rem, 5vw, 2rem);
     text-wrap: balance;
     text-align: center;
@@ -100,11 +102,19 @@ body:has(#loading.show) > *:not(#loading.show) { display: none }
 #loading:not(.show) { display: none }
 
 #loading {
-    width: 100%;
-    max-width: 50rem;
     position: relative;
+    padding-top: 2rem;
     animation: fadeIn 1s ease forwards;
+    margin-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 40dvh;
+    align-content: center;
+    overflow: clip;
 }
+
+#loading h1 {z-index: 1}
 
 @keyframes fadeIn {
     from { opacity: 0;}
@@ -115,18 +125,19 @@ body:has(#loading.show) > *:not(#loading.show) { display: none }
     content: '';
     position: absolute;
     inset-block: 0;
-    width: 2rem;
+    width: 5rem;
+    border-radius: 1rem;
 }
 #loading::before {
     left: 0;
-    background: linear-gradient(to right,  white, transparent);
+    background: linear-gradient(to right, hsl(0 0 100) 20%, transparent);
 }
 #loading::after {
     right: 0;
-    background: linear-gradient(to left,  white, transparent);
+    background: linear-gradient(to left, hsl(0 0 100) 20%, transparent);
 }
 
-#loading img {width: 100%}
+#loading img {height: 100%}
 
 #loading h1 span.animate {
     display: inline-block;
