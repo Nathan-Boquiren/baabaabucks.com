@@ -1,7 +1,7 @@
 :root {
     --primary: hsl(216, 65%, 61%);
     --primary-dark: hsl(216, 65%, 50%);
-    --bg-clr: hsl(from var(--primary) h calc(s + 10) calc(l + 35));
+    --bg-clr: hsl(0 0 95);
 }
 
 * {
@@ -57,7 +57,7 @@ h1 {
     background-color: var(--primary);
     box-shadow: 0 4px 0 var(--primary-dark);
     color: white;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     font-weight: 700;
     cursor: pointer;
     transition: transform 300ms ease, box-shadow 300ms ease;
