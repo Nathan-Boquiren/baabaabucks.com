@@ -31,9 +31,7 @@ body {
     margin: 0 auto;
 }
 
-body.error {
-    --accent-clr: rgb(216 0 0);
-}
+body.error {--accent-clr: rgb(216 0 0)}
 
 .checkmark {
     aspect-ratio: 1;
