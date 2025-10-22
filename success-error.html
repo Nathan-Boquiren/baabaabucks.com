@@ -14,29 +14,34 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" />
 </head>
 
-<body class="error">
-    <div class="checkmark">
-        <span class="material-symbols-rounded">priority_high</span>
+<body>
+    <div class="content-wrapper">
+        <div class="checkmark">
+            <span class="material-symbols-rounded">priority_high</span>
+        </div>
+        <h1>Success!</h1>
+        <h2>
+            <!-- <?= studentName ?> -->
+            John Doe
+        </h2>
+        <h3>Student</h3>
+        <h2>
+            <!-- <?= currentBalance ?> -->
+            $0.00
+        </h2>
+        <h3>Current Balance</h3>
+
+        <details>
+            <summary>Error Details</summary>
+            <p>
+                <!-- <?= error ?> -->
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae omnis aut perspiciatis accusamus odit
+                voluptates ducimus consectetur corporis officia numquam obcaecati, sequi eligendi sint fugit veritatis
+                at necessitatibus maiores velit.
+            </p>
+
+        </details>
     </div>
-    <h1>Error :(</h1>
-    <h2>
-        <!-- <?= studentName ?> -->
-        John Doe
-    </h2>
-    <h3>Student</h3>
-    <h2>
-        <!-- <?= currentBalance ?> -->
-        $0.00
-    </h2>
-    <h3>Current Balance</h3>
-
-    <details>
-        <summary>Error Details</summary>
-        <p>
-            <!-- <?= error ?> -->
-        </p>
-
-    </details>
 </body>
 
 </html>

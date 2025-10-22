@@ -1,4 +1,4 @@
-const scriptUrl = "https://script.google.com/macros/s/AKfycbwBruwX-61EU8RliXrxmijX16udUEOYb25go74VlDXcydY7AwWzZ-xDgZZOFPxFjL7y/exec";
+const scriptUrl = "https://script.google.com/macros/s/AKfycbwoTnOUIe9_U_A5ewLvwzKmAbAVhC8QByYdUTUjP-9Jx5Kk4CLm_KE1p7IoNcV0aiAe/exec";
 
 const config = {
   qrbox: {
