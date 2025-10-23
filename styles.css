@@ -3,7 +3,9 @@
 :root {
     --primary: hsl(216, 65%, 61%);
     --primary-dark: hsl(216, 65%, 50%);
-    --bg-clr: hsl(0 0 95);
+    --bg-clr-dark: hsl(0 0 95);
+    --bg-clr-light: hsl(0 0 100);
+    --medium-clr: hsl(0 0 65);
 }
 
 * {
@@ -20,16 +22,14 @@ body {
 }
 
 .wrapper, #loading {
-    background-color: hsl(0 0 100);
+    background-color: var(--bg-clr-light);
     box-shadow: 0 2px .5rem hsl(0 0 0 / .15);
     border-radius: 1.5rem;
     padding: 1rem;
     margin: 1.5rem auto;
 }
 
-.wrapper {
-    width: clamp(14rem, 80%, 40rem);
-}
+.wrapper {width: clamp(14rem, 80%, 40rem)}
 
 h1, p {
     text-wrap: balance;
@@ -44,7 +44,7 @@ h1 {
 
 .wrapper p {
     margin-block: 1rem 2rem;
-    color: hsl(0 0 65);
+    color: var(--medium-clr);
 }
 
 #scanner-container {
@@ -71,7 +71,7 @@ h1 {
     box-shadow: none;
 }
 
-#html5-qrcode-anchor-scan-type-change {color: hsl(0 0 65)}
+#html5-qrcode-anchor-scan-type-change {color: var(--medium-clr)}
 
 img[alt="Camera based scan"], img[alt="Fule based scan"] {filter: invert(70%)}
 
@@ -81,14 +81,15 @@ img[alt="Info icon"] {
 }
 
 #scanner-container__header_message {
+    --err-clr: hsl(0 100 93);
     position: fixed;
     top: 1rem;
     inset-inline: 0;
     padding-block: 1rem !important;
     margin: 1rem !important;
     border-radius: 1rem;
-    background-color: hsl(0, 100%, 93%) !important;
-    box-shadow: 0 4px 0 -1px hsl(0, 100%, 75%);
+    background-color: var(--err-clr) !important;
+    box-shadow: 0 4px 0 -1px hsl(from var(--err-clr) h s calc(l - 18));
     animation: fadeIn 300ms ease forwards;
 }
 
@@ -133,11 +134,11 @@ body:has(#loading.show) > *:not(#loading.show) { display: none }
 }
 #loading::before {
     left: 0;
-    background: linear-gradient(to right, hsl(0 0 100) 20%, transparent);
+    background: linear-gradient(to right, white 20%, transparent);
 }
 #loading::after {
     right: 0;
-    background: linear-gradient(to left, hsl(0 0 100) 20%, transparent);
+    background: linear-gradient(to left, white 20%, transparent);
 }
 
 #loading img {height: 100%}
