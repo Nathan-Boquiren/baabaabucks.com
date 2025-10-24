@@ -29,7 +29,9 @@ body {
     margin: 1.5rem auto;
 }
 
-.wrapper {width: clamp(14rem, 80%, 40rem)}
+.wrapper {
+    width: clamp(14rem, 80%, 40rem);
+}
 
 h1, p {
     text-wrap: balance;
