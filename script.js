@@ -1,7 +1,7 @@
 // For testing with barcode scanner
 
 let cl = console.log;
-const scriptUrl = "https://script.google.com/macros/s/AKfycbwnJt9Upng00yeo3FvQ2jAJ7-U1MpPIi0Y2KkrlHT4cTjBcpJFxxl1U8jgbshkSpjaz/exec";
+const scriptUrl = "https://script.google.com/macros/s/AKfycbygpepfMJC1dX8mTHAho7nF44UgYEhd2ALNr3bA9I1EB9LS0mopsyHalfzYXkK5OGAG/exec";
 const input = document.getElementById("input");
 const loading = document.getElementById("loading");
 
