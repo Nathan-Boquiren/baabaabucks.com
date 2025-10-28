@@ -6,7 +6,6 @@ const input = document.getElementById("input");
 const loading = document.getElementById("loading");
 
 input.addEventListener("input", () => {
-  // const match = input.value.match(/[?&]s=([^&]+)/);
   const match = input.value.match(/[?&]s=([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i);
   const id = match ? match[1] : null;
   if (!id) return;
@@ -42,5 +41,3 @@ document.body.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   input.focus();
 });
-
-const id = "000949ab-6c96-4154-8c6b-3475103034e8";
