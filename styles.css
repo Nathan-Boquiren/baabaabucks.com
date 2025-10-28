@@ -109,7 +109,7 @@ img[alt="Info icon"] {
 /* Loading */
 
 #loading:not(.show) { display: none }
-body:has(#loading.show) > *:not(#loading.show) { display: none }
+main:has(#loading.show) > *:not(#loading.show) { display: none }
 
 #loading {
     position: relative;

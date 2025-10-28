@@ -3,23 +3,19 @@
 let cl = console.log;
 const scriptUrl = "https://script.google.com/macros/s/AKfycbwnJt9Upng00yeo3FvQ2jAJ7-U1MpPIi0Y2KkrlHT4cTjBcpJFxxl1U8jgbshkSpjaz/exec";
 const input = document.getElementById("input");
+const loading = document.getElementById("loading");
 
-input.addEventListener("input", (e) => {
-  console.log(input.value);
-  const match = input.value.match(/[?&]s=([^&]+)/);
+input.addEventListener("input", () => {
+  // const match = input.value.match(/[?&]s=([^&]+)/);
+  const match = input.value.match(/[?&]s=([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i);
   const id = match ? match[1] : null;
-  if (!id) {
-    console.log("no id:", match, id);
-    input.value = "";
-    return;
-  }
-
+  if (!id) return;
+  cl("id: " + id);
   showLoading();
   window.location.href = `${scriptUrl}?id=${id}`;
 });
 
 function showLoading() {
-  const loading = document.getElementById("loading");
   let txt = Array.from(loading.querySelector("h1").innerHTML);
   const spans = txt.map((ch) => `<span>${ch}</span>`).join("");
   loading.querySelector("h1").innerHTML = spans;
@@ -46,3 +42,5 @@ document.body.addEventListener("pointerdown", (e) => {
   e.preventDefault();
   input.focus();
 });
+
+const id = "000949ab-6c96-4154-8c6b-3475103034e8";
