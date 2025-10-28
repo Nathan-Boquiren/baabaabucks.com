@@ -17,8 +17,14 @@
 
 body {
     min-height: 100dvh;
-    align-content: center;
+    display: flex;
+    flex-direction: column;
     background-color: var(--bg-clr-dark);
+}
+
+main {
+    flex: 1;
+    align-content: center;
 }
 
 .wrapper, #loading {
@@ -29,9 +35,7 @@ body {
     margin: 1.5rem auto;
 }
 
-.wrapper {
-    width: clamp(14rem, 80%, 40rem);
-}
+.wrapper {width: clamp(14rem, 80%, 40rem)}
 
 h1, p {
     text-wrap: balance;
@@ -104,8 +108,8 @@ img[alt="Info icon"] {
 
 /* Loading */
 
-body:has(#loading.show) > *:not(#loading.show) { display: none }
 #loading:not(.show) { display: none }
+body:has(#loading.show) > *:not(#loading.show) { display: none }
 
 #loading {
     position: relative;
@@ -160,12 +164,50 @@ body:has(#loading.show) > *:not(#loading.show) { display: none }
 /* Footer */
 
 footer {
-    position: absolute;
-    bottom: 0;
-    inset-inline: 0;
     padding: 1rem;
     background-color: var(--primary);
     color: white;
     text-align: center;
     font-size: 0.8rem;
+}
+
+/* ========== Barcode Scanner Version ========== */
+
+.icons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    --time: 4s;
+    --delay: 0.3s;
+}
+
+.icons-wrapper svg {
+    width: 3rem;
+    fill: var(--primary);
+    animation: wave var(--time) ease-in-out infinite;
+}
+
+#barcode-scanner-icon {animation-delay: 0s}
+#qr-code-icon {animation-delay: var(--delay)}
+
+@keyframes wave {
+    0% {translate: 0 0}
+    17% {translate: 0 -1rem}
+    34% {translate: 0 0}
+    100% {translate: 0 0}
+}
+
+input {
+    display: block;
+    margin: 2rem auto 0;
+    width: min(100%, 30rem);
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid var(--medium-clr);
+    color: hsl(0 0 20);
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
 }
