@@ -29,6 +29,7 @@ body {
     border-radius: 1.5rem;
     padding: 2rem  1rem  0;
     margin: 0 auto;
+    isolation: isolate;
 }
 
 body.error {--accent-clr: rgb(216 0 0)}
@@ -49,7 +50,7 @@ body.error {--accent-clr: rgb(216 0 0)}
     font-size: 3rem;
 }
 
-h1, h2, h3, details, summary {
+h1, h2, h3, details, summary, a {
     font-family: "Inter", Arial, Helvetica, sans-serif;
     text-align: center;
 }
@@ -125,4 +126,41 @@ details[open] p {animation: fade 0.4s ease forwards}
 @keyframes fade {
     from {opacity: 0;}
     to {opacity: 1;}
+}
+
+/* scan new student btn */
+
+.scan-new-btn {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    background-color: var(--primary-dark);
+    width: 100%;
+    border-radius: 0.75rem;
+    padding-block: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 .3rem 0 -1px var(--primary-light), 0 .5rem 0 -3px var(--primary-light);
+    transition: box-shadow 0.2s ease, translate 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+}
+
+.forward-arrow {
+    font-family: "Material Symbols Rounded";
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: translate 0.2s ease;
+}
+
+.scan-new-btn:active {
+    translate: 0 .5rem;
+    box-shadow: none;
+}
+
+.scan-new-btn:active .forward-arrow {
+    translate: 5px;
 }
