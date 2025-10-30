@@ -44,9 +44,9 @@ body.error {--accent-clr: rgb(216 0 0)}
     border-radius: 50%;
 }
 
-.checkmark span {
-    color: #fff;
-    font-size: 3rem;
+body:not(.error) .checkmark svg path {
+    stroke-width: 1rem;
+    stroke: hsl(0 0 100);
 }
 
 h1, h2, h3, details, summary, a {
