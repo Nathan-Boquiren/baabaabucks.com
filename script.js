@@ -71,8 +71,7 @@ function animateTxt() {
 }
 
 // Input Focus
-
-// input.focus();
+input.focus();
 
 document.body.addEventListener("pointerdown", (e) => {
   e.preventDefault();
