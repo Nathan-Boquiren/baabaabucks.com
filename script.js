@@ -1,16 +1,53 @@
+// Variables
 let cl = console.log;
-const scriptUrl = "https://script.google.com/macros/s/AKfycbwuMKwlqOCXe3E1C4ywgSUm9POjuXDSZx6VTVh-q88LmcFO5QWsG3e1UQkZYKuZSYNe/exec";
-const input = document.getElementById("input");
+const scriptUrl = "https://script.google.com/macros/s/AKfycbzhxnJie-FbLrk2_d1g0L0AwUEa0sZ9a_jiAVjMyAOkfnmbEjSMrp6cUZgtyKw-rjkq/exec";
+
+// DOM Elements
+const input = document.getElementById("id-input");
 const loading = document.getElementById("loading");
+const quantityInput = document.getElementById("quantity-input");
+const stepBtns = document.querySelectorAll(".step-btn");
+const processBtn = document.getElementById("process");
+
+let itemCount = 1;
+let id;
+let quantity;
+
+// Item Quantity Input
+
+stepBtns.forEach((btn) => {
+  btn.addEventListener("pointerdown", () => {
+    btn.id === "increase" ? quantityInput.stepUp() : quantityInput.stepDown();
+    if (quantityInput.value === quantityInput.max || quantityInput.value === quantityInput.min) {
+      btn.classList.add("disabled");
+    } else {
+      stepBtns.forEach((btn) => btn.classList.remove("disabled"));
+    }
+  });
+});
+
+// Input Event on Scan
 
 input.addEventListener("input", () => {
+  input.classList.remove("valid");
   const match = input.value.match(/[?&]s=([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i);
-  const id = match ? match[1] : null;
-  if (!id) return;
+  const valid = match ? match[1] : null;
+  if (!valid) return;
+  input.classList.add("valid");
+  id = valid;
   cl("id: " + id);
-  showLoading();
-  window.location.href = `${scriptUrl}?id=${id}`;
 });
+
+// Process Button
+
+processBtn.addEventListener("click", () => {
+  if (!id) return;
+  showLoading();
+  const itemCount = quantityInput.value;
+  window.location.href = `${scriptUrl}?id=${id}&quantity=${itemCount}`;
+});
+
+// Loading
 
 function showLoading() {
   let txt = Array.from(loading.querySelector("h1").innerHTML);
@@ -33,7 +70,9 @@ function animateTxt() {
   });
 }
 
-input.focus();
+// Input Focus
+
+// input.focus();
 
 document.body.addEventListener("pointerdown", (e) => {
   e.preventDefault();
