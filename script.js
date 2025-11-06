@@ -3,18 +3,13 @@ let cl = console.log;
 const scriptUrl = "https://script.google.com/macros/s/AKfycbzXDdmlKP_QUaoYxPM7YR0eY_8TkvpUc2uI_MZVX0qfZRxp8CK57cuwUKertidpwsf0/exec";
 
 // DOM Elements
-const input = document.getElementById("id-input");
+const idInput = document.getElementById("id-input");
 const loading = document.getElementById("loading");
 const quantityInput = document.getElementById("quantity-input");
 const stepBtns = document.querySelectorAll(".step-btn");
 const processBtn = document.getElementById("process");
 
-let itemCount = 1;
-let id;
-let quantity;
-
 // Item Quantity Input
-
 stepBtns.forEach((btn) => {
   btn.addEventListener("pointerdown", () => {
     btn.id === "increase" ? quantityInput.stepUp() : quantityInput.stepDown();
@@ -26,29 +21,27 @@ stepBtns.forEach((btn) => {
   });
 });
 
-// Input Event on Scan
-
-input.addEventListener("input", () => {
-  input.classList.remove("valid");
-  const match = input.value.match(/[?&]s=([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i);
-  const valid = match ? match[1] : null;
-  if (!valid) return;
-  input.classList.add("valid");
-  id = valid;
-  cl("id: " + id);
+// Student Id Input
+idInput.addEventListener("input", () => {
+  idInput.classList.remove("valid");
+  const match = idInput.value.match(/[?&]s=([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})/i);
+  const id = match ? match[1] : null;
+  if (!id) return;
+  idInput.classList.add("valid");
+  idInput.value = id;
 });
 
 // Process Button
-
 processBtn.addEventListener("click", () => {
-  if (!id) return;
-  showLoading();
+  const studentId = document.querySelector("#id-input.valid").value;
   const itemCount = quantityInput.value;
-  window.location.href = `${scriptUrl}?id=${id}&quantity=${itemCount}`;
+  if (!studentId) return;
+
+  showLoading();
+  window.location.href = `${scriptUrl}?id=${studentId}&quantity=${itemCount}`;
 });
 
 // Loading
-
 function showLoading() {
   let txt = Array.from(loading.querySelector("h1").innerHTML);
   const spans = txt.map((ch) => `<span>${ch}</span>`).join("");
@@ -71,9 +64,9 @@ function animateTxt() {
 }
 
 // Input Focus
-input.focus();
+idInput.focus();
 
 document.body.addEventListener("pointerdown", (e) => {
   e.preventDefault();
-  input.focus();
+  idInput.focus();
 });
