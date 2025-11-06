@@ -1,6 +1,6 @@
 // Variables
 let cl = console.log;
-const scriptUrl = "https://script.google.com/macros/s/AKfycbzDuWcvBpHzSg0FKNKnmtGsUtEd0cNplOHDJeCi7Ik7tmQyhrie0wtlsZHeGKdbcgLX/exec";
+const scriptUrl = "https://script.google.com/macros/s/AKfycbzXDdmlKP_QUaoYxPM7YR0eY_8TkvpUc2uI_MZVX0qfZRxp8CK57cuwUKertidpwsf0/exec";
 
 // DOM Elements
 const input = document.getElementById("id-input");
